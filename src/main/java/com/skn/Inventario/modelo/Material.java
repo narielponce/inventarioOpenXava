@@ -21,6 +21,9 @@ public class Material implements Serializable {
     private String nombre;
 
     @Column(length=50)
+    private String modelo;
+
+    @Column(length=50)
     private String serialNumber;
 
     @ManyToOne
@@ -31,9 +34,8 @@ public class Material implements Serializable {
     @DescriptionsList
     private Categoria categoria;
 
-    //@ManyToOne
-    //@DescriptionsList
-    //private Deposito deposito;
+    @ManyToOne
+    @DescriptionsList
+    private Estado estado;
 
-    // Otros atributos como cantidad, descripción, etc.
 }

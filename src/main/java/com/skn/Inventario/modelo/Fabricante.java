@@ -18,5 +18,4 @@ public class Fabricante implements Serializable {
 
     @Column(length=50) @Required
     private String nombre;
-    // Otros atributos como dirección, contacto, etc.
 }

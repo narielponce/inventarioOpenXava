@@ -18,5 +18,4 @@ public class Usuario implements Serializable {
 
     @Column(length=50) @Required
     private String nombre;
-    // Otros atributos como contraseña, rol, etc.
 }

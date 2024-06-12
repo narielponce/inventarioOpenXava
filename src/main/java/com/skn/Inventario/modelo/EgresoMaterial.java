@@ -24,10 +24,6 @@ public class EgresoMaterial implements Serializable {
     @Required
     private Date fecha;
 
-    //@ManyToOne
-    //@Required
-    //private TipoTransaccion tipoTransaccion;
-
     @ManyToOne
     @Required
     private Material material;
@@ -38,11 +34,11 @@ public class EgresoMaterial implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @DescriptionsList
-    private Deposito depositoOrigen;
+    private Ubicacion origen;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @DescriptionsList
-    private Deposito depositoDestino;
+    private Ubicacion destino;
 
     @ManyToOne
     @Required
@@ -55,7 +51,7 @@ public class EgresoMaterial implements Serializable {
         Query queryOrigen = XPersistence.getManager()
                 .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.deposito = :deposito");
         queryOrigen.setParameter("material", material);
-        queryOrigen.setParameter("deposito", depositoOrigen);
+        queryOrigen.setParameter("deposito", origen);
 
         Inventario inventarioOrigen;
         try {
@@ -71,11 +67,11 @@ public class EgresoMaterial implements Serializable {
         }
 
         // Si hay depósito de destino, aumentar cantidad en el depósito de destino
-        if (depositoDestino != null) {
+        if (destino != null) {
             Query queryDestino = XPersistence.getManager()
                     .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.deposito = :deposito");
             queryDestino.setParameter("material", material);
-            queryDestino.setParameter("deposito", depositoDestino);
+            queryDestino.setParameter("deposito", destino);
 
             Inventario inventarioDestino;
             try {
@@ -84,11 +80,10 @@ public class EgresoMaterial implements Serializable {
             } catch (NoResultException e) {
                 inventarioDestino = new Inventario();
                 inventarioDestino.setMaterial(material);
-                inventarioDestino.setDeposito(depositoDestino);
+                inventarioDestino.setUbicacion(destino);
                 inventarioDestino.setCantidad(cantidad);
             }
             XPersistence.getManager().merge(inventarioDestino);
         }
     }
-    // Otros atributos como tipo de transacción, fecha, etc.
 }

@@ -18,5 +18,4 @@ public class Categoria implements Serializable{
 
     @Column(length=50) @Required
     private String nombre;
-    // Otros atributos como descripción, etc.
 }

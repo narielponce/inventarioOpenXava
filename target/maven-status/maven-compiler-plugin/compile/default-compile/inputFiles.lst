@@ -1,9 +1,10 @@
-/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/TipoTransaccion.java
+/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/EgresoMaterial.java
+/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Ubicacion.java
 /home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Fabricante.java
-/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Transaccion.java
-/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Deposito.java
 /home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/run/Inventario.java
 /home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Usuario.java
+/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Estado.java
+/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/IngresoMaterial.java
 /home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Categoria.java
 /home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Material.java
-/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/TuPrimeraEntidad.java
+/home/ariel/Documentos/Proyectos Software/Inventario/src/main/java/com/skn/Inventario/modelo/Inventario.java

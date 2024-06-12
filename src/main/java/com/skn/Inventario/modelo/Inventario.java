@@ -20,9 +20,7 @@ public class Inventario {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @DescriptionsList
-    private Deposito deposito;
+    private Ubicacion ubicacion;
 
     private int cantidad;
-
-    // Getters y setters...
 }

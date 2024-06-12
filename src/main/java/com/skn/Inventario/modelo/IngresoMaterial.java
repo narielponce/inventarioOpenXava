@@ -25,12 +25,8 @@ public class IngresoMaterial implements Serializable {
     @Required
     private Date fecha;
 
-    //@ManyToOne
-    //@Required
-    //private TipoTransaccion tipoTransaccion;
-
     @ManyToOne
-    //@Required
+    @Required
     @NotNull
     private Material material;
 
@@ -40,7 +36,7 @@ public class IngresoMaterial implements Serializable {
 
     @ManyToOne
     @DescriptionsList
-    private Deposito deposito;
+    private Ubicacion ubicacion;
 
     @ManyToOne
     @Required
@@ -50,9 +46,9 @@ public class IngresoMaterial implements Serializable {
     @PrePersist
     private void actualizarInventario() {
         Query query = XPersistence.getManager()
-                .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.deposito = :deposito");
+                .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.ubicacion = :ubicacion");
         query.setParameter("material", material);
-        query.setParameter("deposito", deposito);
+        query.setParameter("ubicacion", ubicacion);
 
         Inventario inventario;
         try {
@@ -61,10 +57,9 @@ public class IngresoMaterial implements Serializable {
         } catch (NoResultException e) {
             inventario = new Inventario();
             inventario.setMaterial(material);
-            inventario.setDeposito(deposito);
+            inventario.setUbicacion(ubicacion);
             inventario.setCantidad(cantidad);
         }
         XPersistence.getManager().merge(inventario);
     }
-    // Otros atributos como tipo de transacción, fecha, etc.
 }

@@ -1,0 +1,10 @@
+com/skn/Inventario/modelo/Inventario.class
+com/skn/Inventario/modelo/Material.class
+com/skn/Inventario/modelo/Usuario.class
+com/skn/Inventario/modelo/Estado.class
+com/skn/Inventario/modelo/IngresoMaterial.class
+com/skn/Inventario/modelo/EgresoMaterial.class
+com/skn/Inventario/modelo/Ubicacion.class
+com/skn/Inventario/modelo/Fabricante.class
+com/skn/Inventario/run/Inventario.class
+com/skn/Inventario/modelo/Categoria.class
