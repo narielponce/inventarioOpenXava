@@ -49,29 +49,29 @@ public class EgresoMaterial implements Serializable {
     private void actualizarInventario() {
         // Disminuir cantidad en el depósito de origen
         Query queryOrigen = XPersistence.getManager()
-                .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.deposito = :deposito");
+                .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.ubicacion = :ubicacion");
         queryOrigen.setParameter("material", material);
-        queryOrigen.setParameter("deposito", origen);
+        queryOrigen.setParameter("ubicacion", origen);
 
         Inventario inventarioOrigen;
         try {
             inventarioOrigen = (Inventario) queryOrigen.getSingleResult();
             int nuevaCantidad = inventarioOrigen.getCantidad() - cantidad;
             if (nuevaCantidad < 0) {
-                throw new IllegalArgumentException("Cantidad insuficiente en el depósito de origen");
+                throw new IllegalArgumentException("Cantidad insuficiente en la uibicación de origen");
             }
             inventarioOrigen.setCantidad(nuevaCantidad);
             XPersistence.getManager().merge(inventarioOrigen);
         } catch (NoResultException e) {
-            throw new IllegalArgumentException("No existe inventario para el material en el depósito de origen");
+            throw new IllegalArgumentException("No existe inventario para el material en la ubicación de origen");
         }
 
         // Si hay depósito de destino, aumentar cantidad en el depósito de destino
         if (destino != null) {
             Query queryDestino = XPersistence.getManager()
-                    .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.deposito = :deposito");
+                    .createQuery("SELECT i FROM Inventario i WHERE i.material = :material AND i.ubicacion = :ubicacion");
             queryDestino.setParameter("material", material);
-            queryDestino.setParameter("deposito", destino);
+            queryDestino.setParameter("ubicacion", destino);
 
             Inventario inventarioDestino;
             try {
